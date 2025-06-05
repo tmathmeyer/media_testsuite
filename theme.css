@@ -1,0 +1,7 @@
+* {
+  --background-color: white;
+  --titlebar-color: black;
+  --titlebar-highlight: white;
+  --titlebar-text-color: #a2a2a2;
+  --titlebar-height: 3em;
+}

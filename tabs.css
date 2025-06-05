@@ -1,0 +1,57 @@
+.backbuffer {
+  display: none;
+}
+
+.titlebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--titlebar-color);
+  height: var(--titlebar-height);
+  list-style: none;
+  margin: 0;
+  padding: 0 5px;
+}
+
+.titlebar > li {
+  display: block;
+  width: fit-content;
+  float: left;
+  color: var(--titlebar-text-color);
+  height: var(--titlebar-height);
+  line-height: var(--titlebar-height);
+  padding: 0 5px 0 5px;
+  cursor: pointer;
+}
+
+.titlebar > li > ux-tab-title {
+  position: relative;
+}
+
+.titlebar > li > ux-tab-title.selected {
+  color: var(--titlebar-highlight);
+}
+
+.titlebar > li > ux-tab-title:hover {
+  text-decoration: underline;
+}
+
+.titlebar > li > ux-tab-title.selected:after {
+  border-bottom: 10px solid var(--background-color);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  content: " ";
+  position: absolute;
+  left: calc(50% - 8px);
+  bottom: calc((var(--titlebar-height) - 1em) / -2);
+}
+
+.renderframe {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--titlebar-height);
+  bottom: 0;
+  background-color: var(--background-color);
+}
