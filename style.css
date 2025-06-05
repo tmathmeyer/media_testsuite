@@ -1,0 +1,89 @@
+/* style.css */
+
+/* Tab Group Container */
+tab-group {
+  display: block; /* Custom elements are inline by default */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* Tab Bar Styling (area where tab titles sit) */
+/* We need a way to style the container of tab titles if it's distinct.
+   Often, the tab-group itself acts as this, or a div inside its shadow DOM.
+   For now, assuming tab-entry elements are direct children laid out by tab-group's potential shadow DOM or light DOM structure.
+   If tab-group uses flex to lay out tab-entry elements directly: */
+/* tab-group {
+  display: flex; /* This would be if tab-entries themselves are flex items for the bar */
+  /* flex-wrap: wrap; */
+  /* background-color: #f0f0f0; */
+  /* padding: 5px; */
+/* } */
+
+/* Individual Tab Entry (the clickable tab element itself) */
+tab-entry {
+  display: inline-block; /* Allow tabs to sit in a row */
+  /* Styles for the tab-entry host if needed, e.g., margin */
+  margin-right: 4px;
+}
+
+/* Styling for the content slotted into tab-title */
+tab-entry [slot="tab-title"] {
+  display: inline-block; /* Ensure padding and borders apply correctly */
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  position: relative;
+  bottom: -1px; /* To align with the tab-group border */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+tab-entry [slot="tab-title"]:hover {
+  background-color: #e7e7e7;
+}
+
+/* Active Tab Title Styling */
+tab-entry[aria-selected="true"] [slot="tab-title"] {
+  background-color: #ffffff; /* White background for active tab */
+  border-bottom-color: #ffffff; /* Make it look like it's part of the panel */
+  font-weight: bold;
+  color: #333;
+}
+
+/* Tab Panel Styling */
+/* The TabEntryComponent uses a div with part="panel" in its shadow DOM
+   to wrap the tab-panel slot and controls its display. */
+tab-entry::part(panel) {
+  /* This styles the container anel-container' inside tab-entry's shadow DOM */
+  padding: 15px;
+  border-top: 1px solid #ccc;
+  /* The tab-group border provides the other borders if panel is full width */
+  background-color: #ffffff;
+  /* display: none; is handled by tab-entry's internal CSS based on :host([aria-selected]) */
+}
+
+/* If you want to ensure panels stretch full width of the tab-group container,
+   and the tab-group has a border, the panel part might not need its own full border,
+   just a top border to separate from the tabs. */
+
+/* Example: Ensure the active panel content appears connected */
+/* tab-entry[aria-selected="true"]::part(panel) { */
+  /* Styles here will apply to the panel container when its tab is active. */
+  /* The display: block is already handled by tab-entry's shadow CSS. */
+/* } */
+
+/* General body styling for the example page */
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+h1 {
+  color: #333;
+}
+p {
+  line-height: 1.6;
+}

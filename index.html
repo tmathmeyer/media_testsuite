@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabbed Components Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="tab_group.js" type="module" defer></script>
+  <script src="tab_entry.js" type="module" defer></script>
+</head>
+<body>
+
+  <h1>Custom Tab Components Demo</h1>
+
+  <p>This page demonstrates the use of custom `tab-group` and `tab-entry` web components.</p>
+
+  <tab-group>
+    <tab-entry>
+      <h4 slot="tab-title" id="tab1-title">First Tab Title</h4>
+      <div slot="tab-panel" aria-labelledby="tab1-title">
+        <p>This is the content for the <strong>first tab panel</strong>. It can contain any HTML content like paragraphs, lists, images, etc.</p>
+        <ul>
+          <li>Item A</li>
+          <li>Item B</li>
+        </ul>
+      </div>
+    </tab-entry>
+
+    <tab-entry>
+      <h4 slot="tab-title" id="tab2-title">Second Tab</h4>
+      <div slot="tab-panel" aria-labelledby="tab2-title">
+        <p>Content for the <em>second tab panel</em> goes here. Let's add some different text to distinguish it.</p>
+        <p>Web components are cool!</p>
+      </div>
+    </tab-entry>
+
+    <tab-entry>
+      <h4 slot="tab-title" id="tab3-title">Third Tab (More Content)</h4>
+      <div slot="tab-panel" aria-labelledby="tab3-title">
+        <p>This is the <strong>third tab panel</strong>, demonstrating a bit more content.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <img src="https://via.placeholder.com/300x100.png?text=Sample+Image" alt="Placeholder Image">
+      </div>
+    </tab-entry>
+  </tab-group>
+
+  <h2>Another Section</h2>
+  <p>Some other content below the tab group to ensure layout and styling are contained.</p>
+
+</body>
+</html>
