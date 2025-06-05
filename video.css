@@ -1,0 +1,14 @@
+.leftside {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.leftside video {
+  width: 100%;
+  height: auto;
+}
+
+.leftside .controls {
+  margin-top: 10px;
+}
